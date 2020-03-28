@@ -1,11 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
+const routes = require('./routes');
 
-app.get('/', (req, res) => {
-    return res.json({
-        evento: 'Semana OmniStack',
-        aluno: 'Geraldo Braz'
-    })
-})
+app.use(express.json());
+app.use(cors());
+app.use(routes);
 
 app.listen(3333);
