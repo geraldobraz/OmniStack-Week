@@ -37,16 +37,16 @@ export default function Register() {
             <div className="content">
                 <section>
                     <img src={logoImg} alt="Be The Hero" /> 
-                    <h1>Cadastro</h1>
-                    <p>Faça seu cadastro , entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG.</p>
+                    <h1>Register</h1>
+                    <p>Create your profile, and access Be The Hero platform to help people find incidents of your NGO.</p>
                     <Link className="back-link" to="/">
                         <FiArrowLeft size={16} color="#E02041" />
-                        Não tenho cadastro
+                        Back
                     </Link>
                 </section>
                 <form onSubmit={handleRegister}>
                     <input 
-                        placeholder="Nome da ONG"
+                        placeholder="NGO name"
                         value={name}
                         onChange={e => setName(e.target.value)}
                      />
@@ -63,20 +63,18 @@ export default function Register() {
                     />
                     <div className="input-group">
                         <input 
-                            placeholder="Cidade"
+                            placeholder="City"
                             value={city}
                             onChange={e => setCity(e.target.value)} 
                         />
                         <input 
-                            placeholder="UF" 
-                            style={{ width:80 }}
+                            placeholder="Estate" 
+                            style={{ width:115 }}
                             value={uf}
                             onChange={e => setUf(e.target.value)} 
                         />
                     </div>
-                    <button className="button" type="submit">Cadastrar</button>
-
-
+                    <button className="button" type="submit">Register</button>
                 </form>
             </div>
         </div>

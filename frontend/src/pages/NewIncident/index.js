@@ -7,7 +7,6 @@ import logoImg from '../../assets/logo.svg';
 import api from '../../services/api';
 
 export default function NewIncident() {
-    
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [value, setValue] = useState('');
@@ -27,7 +26,7 @@ export default function NewIncident() {
             });
             history.push('/profile');
         } catch (error) {
-            alert('Não foi possivel cadastrar um novo caso!')
+            alert('Error: It is not possible to create a new incident')
         }
 
     }
@@ -37,33 +36,33 @@ export default function NewIncident() {
         <div className="content">
             <section>
                 <img src={logoImg} alt="Be The Hero" /> 
-                <h1>Cadastrar novo caso</h1>
-                <p>Descreva o caso detalhado para encontrar um heroi para resolver isso.</p>
+                <h1>Register new incident</h1>
+                <p>Describe the incident in detail to find a hero that could solve your issue..</p>
                 <Link className="back-link" to="/profile">
                     <FiArrowLeft size={16} color="#E02041" />
-                    Voltar para Home
+                    Back to Home
                 </Link>
             </section>
             <form>
                 <input 
-                    placeholder="Descrição do caso"
+                    placeholder="Incident"
                     value={title}
                     onChange={e => setTitle(e.target.value)}
                     
                 />
                 <textarea 
-                    placeholder="Descrição"
+                    placeholder="Description"
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                     
                 />
                 <input 
-                    placeholder="Valor em reais"
+                    placeholder="Value ($)"
                     value={value}
                     onChange={e => setValue(e.target.value)}
                     
                 />
-                <button className="button" type="submit" onClick={handleNewIncident} >Cadastrar</button>
+                <button className="button" type="submit" onClick={handleNewIncident} >Register</button>
              </form>
         </div>
     </div>

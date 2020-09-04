@@ -48,12 +48,12 @@ export default function Incidents() {
             <View style={styles.header} >
                 <Image source={logoImg} />
                 <Text style={styles.headerText}>
-                    Total de <Text style={styles.headerTextBold}>{total} casos</Text>
+                    Total of <Text style={styles.headerTextBold}>{total} incidents</Text>
                 </Text>
             </View>
 
-            <Text style={styles.title}>Bem-Vindo!</Text>
-            <Text style={styles.description}>Escolha um dos casos abaixo e salve o dia.</Text>
+            <Text style={styles.title}>Welcome!</Text>
+            <Text style={styles.description}>Choose one incident and save the day.</Text>
         <FlatList 
             data={incidents}
             style={styles.indicentList}
@@ -63,23 +63,21 @@ export default function Incidents() {
             keyExtractor={incident => String(incident.id)}
             renderItem={ ({ item: incident }) => (
             <View style={styles.incident}>
-                <Text style={styles.incidentProperty}>ONG:</Text>
+                <Text style={styles.incidentProperty}>NGO:</Text>
                 <Text style={styles.incidentValue}>{incident.name}</Text>
 
-                <Text style={styles.incidentProperty}>CASO:</Text>
+                <Text style={styles.incidentProperty}>INCIDENT:</Text>
                 <Text style={styles.incidentValue}>{incident.title}</Text>
                 
-                <Text style={styles.incidentProperty}>VALOR:</Text>
+                <Text style={styles.incidentProperty}>VALUE:</Text>
                 <Text style={styles.incidentValue}>
-                    {Intl.NumberFormat('pr-BR', { 
-                        style: 'currency', currency: 'BRL' 
-                    }).format(incident.value)}
+                    {Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' }).format(incident.value)}
                 </Text>
 
                 <TouchableOpacity  
                     style={styles.detailsButton}
                     onPress={ () => navigationToDetail(incident) }>
-                        <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
+                        <Text style={styles.detailsButtonText}>See more</Text>
                         <Feather name="arrow-right" size={16} color="#E02041" />
                 </TouchableOpacity>
             </View>

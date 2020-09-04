@@ -44,26 +44,26 @@ export default function Profile() {
         <div className="profile-container"> 
             <header>
                 <img src={logoImg} alt="Be The Hero" />
-                    <span> Bem vinda, {ongName}</span>
+                    <span> Welcome, {ongName}</span>
 
-                <Link className="button" to="/incidents/new">Cadastrar novo caso</Link>
+                <Link className="button" to="/incidents/new">Register new incident</Link>
                 <button type="button" onClick={handleLogout}>
                     <FiPower size={18} color="#E02041" />
                 </button>
             </header>
-            <h1>Casos Cadastrados</h1>
+            <h1>Registered Incidents</h1>
             
             <ul>
                 {incidents.map(incident => (
                 <li key={incident.id}>
-                    <strong>CASO:</strong>
+                    <strong>INCIDENT:</strong>
                     <p>{incident.title}</p>
 
-                    <strong>DESCRIÇÃO:</strong>
+                    <strong>DESCRIPTION:</strong>
                     <p>{incident.description}</p>
 
                     <strong>VALOR:</strong>
-                    <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format( incident.value)}</p>
+                    <p>{Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' }).format( incident.value)}</p>
 
                     <button type="button" onClick={ () => handleDeleteIncident(incident.id) }>
                         <FiTrash2 size={20} color="#A8A8B3" />

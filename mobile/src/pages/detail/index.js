@@ -11,7 +11,7 @@ export default function Detail() {
     const route = useRoute();
     
     const incident = route.params.incident;
-    const  message = `Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de ${Intl.NumberFormat('pr-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)}`;
+    const  message = `Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de ${Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' }).format(incident.value)}`;
 
     function navigateBack() {
         navigation.goBack();
@@ -19,7 +19,7 @@ export default function Detail() {
 
     function sendMail(params) {
         MailComposer.composeAsync({
-            subject: `Herói do caso: ${incident.title}`,
+            subject: `Hero: ${incident.title}`,
             recipients: [incident.email],
             body: message,
         })
@@ -39,30 +39,28 @@ export default function Detail() {
             </View>
 
             <View style={styles.incident}>
-                <Text style={[styles.incidentProperty, { marginTop:0 }]}>ONG:</Text>
-                <Text style={styles.incidentValue}>{incident.name} de {incident.city}/{incident.uf}</Text>
+                <Text style={[styles.incidentProperty, { marginTop:0 }]}>NGO:</Text>
+                <Text style={styles.incidentValue}>{incident.name} from {incident.city}/{incident.uf}</Text>
 
-                <Text style={styles.incidentProperty}>CASO:</Text>
+                <Text style={styles.incidentProperty}>INCIDENT:</Text>
                 <Text style={styles.incidentValue}>{incident.title}</Text>
                 
-                <Text style={styles.incidentProperty}>VALOR:</Text>
+                <Text style={styles.incidentProperty}>VALUE:</Text>
                 <Text style={styles.incidentValue}>
-                    {Intl.NumberFormat('pr-BR', { 
-                        style: 'currency', currency: 'BRL' 
-                    }).format(incident.value)}
+                    {Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' }).format(incident.value)}
                 </Text>
 
             </View>
             <View style={styles.contactBox}>
-                <Text style={styles.heroTitle}>Salve o dia!</Text>
-                <Text style={styles.heroTitle}>Seja o herói desse caso.</Text>
+                <Text style={styles.heroTitle}>Save the day!</Text>
+                <Text style={styles.heroTitle}>Be the hero of this incident.</Text>
                 
                 
-                <Text style={styles.heroDescription}>Entre em contato:</Text>
+                <Text style={styles.heroDescription}>Get in touch:</Text>
 
                 <View style={styles.actions}>
                     <TouchableOpacity style={styles.action} onPress={ sendWhatsapp }>
-                        <Text style={styles.actionText}>Whatsapp</Text>
+                        <Text style={styles.actionText}>Whatsapp</Text> 
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.action} onPress={ sendMail }>
                         <Text style={styles.actionText}>E-mail</Text>

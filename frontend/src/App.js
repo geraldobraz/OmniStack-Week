@@ -8,6 +8,4 @@ function App() {
   );
 }
 
-// https://youtu.be/jFl90T6lnBQ?t=3504
-
 export default App;
